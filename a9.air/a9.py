@@ -7,11 +7,11 @@ import threading
 # import multiprocessing
 import sys
 ST.OPDELAY=0.1
-ST.THRESHOLD=0.8
+ST.THRESHOLD=0.9
 ST.FIND_TIMEOUT=3
-ST.FIND_TIMEOUT_TMP=2
-ST.SAVE_IMAGE = True
-auto_setup(__file__)
+ST.FIND_TIMEOUT_TMP=1.5
+ST.SAVE_IMAGE = False
+auto_setup(__file__,devices=["Android:///"])
 class zero:
 #     初始化
     def 初始化():
@@ -19,15 +19,23 @@ class zero:
         
 
 #         while exists(Template(r"tpl1650084107350.png", record_pos=(0.446, -0.207), resolution=(3120, 1440)))==False and exists(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))==False:
-        while exists(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))==False:
-            keyevent("BACK")
-            touch((0.9*w,0.9*h))
-            keyevent("BACK")
 
-        sleep(1)
+        for i in range(7):
+            if exists(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))==False:
+                
+                keyevent("BACK")
+                sleep(0.5)
+                keyevent("BACK")
+                sleep(0.5)
+                touch((0.9*w,0.9*h))
+                keyevent("BACK")
+                sleep(0.5)
+                keyevent("BACK")
+                sleep(0.5)
+            else:
+                break
 
-
-        if exists(Template(r"tpl1650946032931.png", record_pos=(-0.001, 0.079), resolution=(3120, 1440))):
+        if exists(Template(r"tpl1650946032931.png", threshold=0.9, record_pos=(-0.001, 0.079), resolution=(3120, 1440))):
             keyevent("BACK")
 
 
@@ -41,13 +49,17 @@ class zero:
             touch((0.4*w,0.6*h))
         elif exists(Template(r"tpl1650073628578.png", record_pos=(0.111, 0.182), resolution=(3120, 1440))):
             touch((0.6*w,0.9*h))
+            sleep(0.5)
             wait(Template(r"tpl1650076903619.png", record_pos=(0.111, 0.18), resolution=(3120, 1440)))
             touch((0.4*w,0.6*h))
     def 过度每日(a):
         if exists(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440))):
             touch((0.4*w,0.9*h),times=2)
-        wait(Template(r"tpl1654128406528.png", record_pos=(0.432, -0.08), resolution=(3120, 1440)))
-
+        try:
+            sleep(0.5)
+            wait(Template(r"tpl1654128406528.png", record_pos=(0.432, -0.08), resolution=(3120, 1440)))
+        except:
+            pass
         
 #         if exists(Template(r"tpl1651044974045.png", rgb=True, record_pos=(0.409, -0.141), resolution=(3120, 1440))) or exists(Template(r"tpl1651045012507.png", rgb=True, record_pos=(0.409, -0.14), resolution=(3120, 1440))):
 
@@ -58,14 +70,16 @@ class zero:
         
         if a==int(0):          
             try:
-                touch(Template(r"tpl1657193338141.png", record_pos=(0.222, 0.161), resolution=(3120, 1440)),times=2)
+                touch(Template(r"tpl1660213217000.png", record_pos=(0.222, 0.142), resolution=(3120, 1440)),times=2)
                 
             
             except:
                 swipe((0.5*w,0.8*h), vector=[-0.5, 0])
                 sleep(2)
-                touch(Template(r"tpl1657193338141.png", record_pos=(0.222, 0.161), resolution=(3120, 1440)),times=2)
-
+                try:
+                    touch(Template(r"tpl1660213217000.png", record_pos=(0.222, 0.142), resolution=(3120, 1440)),times=2)
+                except:
+                    pass
 
 
 
@@ -73,24 +87,39 @@ class zero:
             touch((a*0.12*w,0.8*h),times=2)
         
     def 过度赛季寻车():
+        sleep(0.5)
         wait(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))
         touch((0.3*w,0.9*h))
+        sleep(0.5)
         wait(Template(r"tpl1651218481188.png", record_pos=(-0.193, 0.183), resolution=(3120, 1440)))
         touch(Template(r"tpl1651218499381.png", record_pos=(-0.431, -0.094), resolution=(3120, 1440)))
+        sleep(0.5)
         wait(Template(r"tpl1651218532029.png", record_pos=(-0.239, -0.078), resolution=(3120, 1440)))
         touch(Template(r"tpl1651218532029.png", record_pos=(-0.239, -0.078), resolution=(3120, 1440)))
 
     def 生涯刷钱():
+        sleep(0.5)
         wait(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))
         touch((0.9*w,0.9*h),times=2)
+        sleep(0.5)
         wait(Template(r"tpl1651547398554.png", record_pos=(-0.329, 0.201), resolution=(3120, 1440)))
         touch((0.75*w,0.95*h))
         touch(Template(r"tpl1651547607967.png", record_pos=(0.227, -0.106), resolution=(3120, 1440)))
 
+    def 过度赛季赛事():
+        sleep(0.5)
+        wait(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)))
+        touch((0.3*w,0.9*h))
+        sleep(0.5)
+        for i in range(3):
+            if exists(Template(r"tpl1659844782386.png", record_pos=(-0.318, 0.065), resolution=(3120, 1440)))==False:
+                sleep(0.5)
+                swipe((0.2*w,0.7*h), vector=[0, -1])
+                sleep(0.5)
+            else:
+                touch(Template(r"tpl1659844782386.png", record_pos=(-0.318, 0.065), resolution=(3120, 1440)),times=2)
+                break
         
-
-
-
     def 初始化多人上():
         zero.初始化()
         zero.过度多人上()
@@ -106,11 +135,14 @@ class zero:
     def 初始化生涯刷钱():
         zero.初始化()
         zero.生涯刷钱()
+    def 初始化赛季赛事():
+        zero.初始化()
+        zero.过度赛季赛事()
 class one:
 #     选模式
     def 多人上():
         
-    
+        sleep(0.5)
         if exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440))):
             touch(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
         elif exists(Template(r"tpl1650082350306.png", record_pos=(-0.006, 0.13), resolution=(3120, 1440))):
@@ -128,6 +160,7 @@ class one:
             one.多人下()
     def 每日():
         try:
+            sleep(0.5)
             wait(Template(r"tpl1650641664647.png", record_pos=(0.338, 0.178), resolution=(3120, 1440)))
             touch(Template(r"tpl1650641664647.png", record_pos=(0.338, 0.178), resolution=(3120, 1440)))
             
@@ -135,17 +168,33 @@ class one:
             zero.初始化每日
             one.每日
     def 赛季寻车():
+        sleep(0.5)
         wait(Template(r"tpl1651218818970.png", record_pos=(-0.401, -0.051), resolution=(3120, 1440)))
         touch((0.9*w,0.9*h))
     def 生涯刷钱():
 #         swipe((2000,200),(2000,1200),times=3,duration=0.01)
+        sleep(0.5)
         wait(Template(r"tpl1651221471643.png", record_pos=(0.339, 0.19), resolution=(3120, 1440)))
         swipe((2000,200), vector=[0, 0.8],duration=0.01)
         swipe((2000,200), vector=[0, 0.8],duration=0.01)
+        sleep(0.5)
         wait(Template(r"tpl1651550044691.png", record_pos=(-0.149, 0.013), resolution=(3120, 1440)))
 
         touch(Template(r"tpl1651550044691.png", record_pos=(-0.149, 0.013), resolution=(3120, 1440)))
         touch((2500,1300))
+    def 车手联赛():
+        sleep(1)
+        wait(Template(r"tpl1659341013531.png", record_pos=(0.077, -0.022), resolution=(3120, 1440)))
+        try:
+            touch(Template(r"tpl1659341035026.png", record_pos=(0.11, -0.021), resolution=(3120, 1440)))
+        except:
+            if exists(Template(r"tpl1659341052366.png", record_pos=(0.11, 0.068), resolution=(3120, 1440))):
+                touch(Template(r"tpl1659341052366.png", record_pos=(0.11, 0.068), resolution=(3120, 1440)))
+            else:
+                touch(Template(r"tpl1659354210810.png", record_pos=(0.049, 0.07), resolution=(3120, 1440)))
+        sleep(0.5)
+        wait(Template(r"tpl1659341172016.png", record_pos=(0.334, 0.167), resolution=(3120, 1440)))
+        touch(Template(r"tpl1659341183266.png", record_pos=(0.335, 0.166), resolution=(3120, 1440)))
 
         
 
@@ -154,21 +203,32 @@ class one:
 class two:
 #     选车
     def 多人上选车():
-        wait(Template(r"tpl1650963353275.png", record_pos=(-0.101, -0.082), resolution=(3120, 1440)))
+        sleep(1)
+        wait(Template(r"tpl1659862851179.png", record_pos=(-0.098, 0.066), resolution=(3120, 1440)))
         
-        if exists(Template(r"tpl1650853040988.png", record_pos=(0.191, 0.033), resolution=(3120, 1440))):
-            touch(Template(r"tpl1650853040988.png", record_pos=(0.191, 0.033), resolution=(3120, 1440)))
+        if exists(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440))):
+            touch(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440)))
+        elif exists(Template(r"tpl1660144567939.png", record_pos=(-0.038, 0.036), resolution=(3120, 1440))):
+            touch(Template(r"tpl1660144567939.png", record_pos=(-0.038, 0.036), resolution=(3120, 1440)))
+
         else:
             touch((0.63*w,0.2*h))
+            sleep(0.5)
             wait(Template(r"tpl1650853151285.png", record_pos=(-0.389, -0.045), resolution=(3120, 1440)))
 
             touch((0.8*w,0.8*h))
+        sleep(0.5)
         
         wait(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
 
-        while exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))==False:
-            touch(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
+        
+        for i in range(23):
+            if exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))==False:
+                touch((0.35*w,0.5*h))
+            else:
+                break
         touch(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
+        sleep(0.5)
         wait(Template(r"tpl1649861377674.png", record_pos=(-0.071, 0.136), resolution=(3120, 1440)))
         while exists(Template(r"tpl1649861377674.png", record_pos=(-0.071, 0.136), resolution=(3120, 1440))):
             if exists(Template(r"tpl1649866808747.png", record_pos=(0.351, -0.093), resolution=(3120, 1440))):
@@ -179,37 +239,34 @@ class two:
             two.多人上选车()
     def 多人下选车():
 
-        try:
-            wait(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440)) or Template(r"tpl1650606812184.png", record_pos=(-0.328, 0.181), resolution=(3120, 1440)) or Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
-        except:
-            pass
-
-        if exists(Template(r"tpl1650853040988.png", record_pos=(0.191, 0.033), resolution=(3120, 1440))):
-            touch(Template(r"tpl1650853040988.png", record_pos=(0.191, 0.033), resolution=(3120, 1440)))
-
-        elif exists(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440))):
-            touch(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440)))
+        sleep(1)
+        if exists(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440))):
+            touch(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440)))
         elif exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440))):
             pass
+        elif exists(Template(r"tpl1659059559403.png", record_pos=(0.365, 0.174), resolution=(3120, 1440))):
+            raise
 
 
         else:
             touch((0.62*w,0.2*h))
-            wait(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440)) or Template(r"tpl1650606812184.png", record_pos=(-0.328, 0.181), resolution=(3120, 1440)))
-            if exists(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440))):
-                touch(Template(r"tpl1650899056247.png", record_pos=(-0.046, 0.181), resolution=(3120, 1440)))
+            sleep(0.5)
+            if exists(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440))):
+                touch(Template(r"tpl1659862148388.png", threshold=0.9, record_pos=(-0.083, 0.036), resolution=(3120, 1440)))
             else:
-                touch(Template(r"tpl1650606812184.png", record_pos=(-0.328, 0.181), resolution=(3120, 1440)))
+                raise
 
 
 
         try:
+            sleep(0.5)
             wait(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
         except:
             pass
-        while exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))==False:
-            touch(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
+#         while exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))==False:
+#             touch(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
         touch(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
+        sleep(0.5)
         wait(Template(r"tpl1649861377674.png", record_pos=(-0.071, 0.136), resolution=(3120, 1440)))
         while exists(Template(r"tpl1649861377674.png", record_pos=(-0.071, 0.136), resolution=(3120, 1440))):
             if exists(Template(r"tpl1649866808747.png", record_pos=(0.351, -0.093), resolution=(3120, 1440))):
@@ -220,72 +277,108 @@ class two:
             two.多人下选车()
     def 每日选车(self):
         if self=='d':
-            abcd=Template(r"tpl1656680315334.png", threshold=0.99, record_pos=(-0.433, -0.12), resolution=(3120, 1440))
+            abcd=Template(r"tpl1659842617198.png", threshold=0.99, rgb=False, record_pos=(0.416, -0.127), resolution=(3120, 1440))
+            ABCD=Template(r"tpl1659888564847.png", threshold=0.99, record_pos=(0.439, -0.02), resolution=(3120, 1440))
         elif self=='c':
-            abcd=Template(r"tpl1656080549320.png", threshold=0.99, record_pos=(-0.433, -0.12), resolution=(3120, 1440))
-        
-        wait(Template(r"tpl1650963353275.png", record_pos=(-0.101, -0.082), resolution=(3120, 1440)))
+            abcd=Template(r"tpl1659842354086.png", threshold=0.99, rgb=False, record_pos=(0.416, -0.129), resolution=(3120, 1440))
+            ABCD=Template(r"tpl1659888618912.png", threshold=0.99, record_pos=(0.143, -0.02), resolution=(3120, 1440))
+        sleep(0.5)
+        wait(Template(r"tpl1650648319402.png", record_pos=(0.434, -0.123), resolution=(3120, 1440)))
 
         
         touch(Template(r"tpl1650648319402.png", record_pos=(0.434, -0.123), resolution=(3120, 1440)))
+        sleep(0.5)
         wait(Template(r"tpl1650648380734.png", record_pos=(-0.413, -0.162), resolution=(3120, 1440)))
         touch((0.26*w,0.35*h))
-        sleep(0.5)
+        sleep(0.1)
         touch((0.26*w,0.65*h))
+        sleep(0.1)
+        touch((0.26*w,0.46*h))
         sleep(0.5)
         touch((0.1*w,0.8*h))
-#         wait(Template(r"tpl1650963353275.png", record_pos=(-0.101, -0.082), resolution=(3120, 1440)))
-        sleep(2)
 
-        touch((0.2*w,0.5*h))
-        wait(Template(r"tpl1650644657193.png", record_pos=(0.358, 0.177), resolution=(3120, 1440)))
+        sleep(1)
+        wait(Template(r"tpl1659862851179.png", record_pos=(-0.098, 0.066), resolution=(3120, 1440)))
+        
+        if exists(ABCD):
+            touch(ABCD)
+        else:
+            touch((0.99*w,0.8*h))
+        sleep(0.5)
+        wait(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
 #         for s in range(self):
 #             touch((0.35*w,0.5*h))
-        for i in range(99):
-            touch((0.35*w,0.5*h))
-            if exists(abcd)!=False:
-                if exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))!=False:
-                    break
-                
-#         if exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440))):
-        touch(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
-#         else:            
-#             while exists(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))==False:
-#                 touch((0.35*w,0.5*h))
-#             touch(Template(r"tpl1650077146189.png", record_pos=(0.134, 0.183), resolution=(3120, 1440)))
+        for i in range(99):          
+            if exists(abcd) and exists(Template(r"tpl1659884667909.png", record_pos=(0.359, 0.175), resolution=(3120, 1440))):
+                break
+            else:
+                 touch((0.93*w,0.5*h))
+
+        touch(Template(r"tpl1659884667909.png", record_pos=(0.359, 0.175), resolution=(3120, 1440)))
+
     def 生涯刷钱选车():
+        sleep(0.5)
         wait(Template(r"tpl1650963353275.png", record_pos=(-0.101, -0.082), resolution=(3120, 1440)))
         swipe((3000,900), vector=[-1.2, 0])
         swipe((3000,900), vector=[-1.2, 0])
+        sleep(0.5)
         wait(Template(r"tpl1651551084983.png", record_pos=(0.27, -0.038), resolution=(3120, 1440)))
 
         touch(Template(r"tpl1651551084983.png", record_pos=(0.27, -0.038), resolution=(3120, 1440)))
+        sleep(0.5)
         wait(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
 
-        while exists(Template(r"tpl1651555586279.png", record_pos=(0.367, 0.174), resolution=(3120, 1440)))==False:
-            touch(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
+        for i in range(23):
+            if exists(Template(r"tpl1651555586279.png", record_pos=(0.367, 0.174), resolution=(3120, 1440)))==False:
+                touch(Template(r"tpl1649857446703.png", record_pos=(0.428, -0.002), resolution=(3120, 1440)))
+            else:
+                break
         touch(Template(r"tpl1651555586279.png", record_pos=(0.367, 0.174), resolution=(3120, 1440)))
 
+    def 车手联赛选车():
+        sleep(0.5)
+        wait(Template(r"tpl1659341272821.png", record_pos=(0.354, 0.173), resolution=(3120, 1440)))
+        touch(Template(r"tpl1659341272821.png", record_pos=(0.354, 0.173), resolution=(3120, 1440)))
+        sleep(1)
+        if exists(Template(r"tpl1659859108034.png", record_pos=(-0.047, 0.05), resolution=(3120, 1440))):
+            raise
+        else:
+            pass
 class three:
 #     选路线
     def 选择路线开车():
+        sleep(0.5)
         wait(Template(r"tpl1649859105505.png", record_pos=(0.413, -0.098), resolution=(3120, 1440)),timeout=90)
         while exists(Template(r"tpl1649859105505.png", record_pos=(0.413, -0.098), resolution=(3120, 1440))):
             touch((0.9*w,0.9*h))
+            sleep(0.1)
 #             touch((0.455*w,0.2*h))
     def 每日开车():
+        sleep(0.5)
         wait(Template(r"tpl1650648910161.png", record_pos=(0.32, -0.15), resolution=(3120, 1440)),timeout=90)
         mr=int(0)
         while exists(Template(r"tpl1650648910161.png", record_pos=(0.32, -0.15), resolution=(3120, 1440))):
             touch((0.9*w,0.9*h))
-            sleep(0.2)
+            sleep(0.1)
 #             touch((0.455*w,0.2*h))
     def 生涯刷金开车():
+        sleep(0.5)
         wait(Template(r"tpl1651554704979.png", record_pos=(0.282, -0.144), resolution=(3120, 1440)),timeout=90)
 
         while exists(Template(r"tpl1651553034456.png", record_pos=(-0.363, -0.062), resolution=(3120, 1440))):
             touch((0.9*w,0.9*h))
-
+    def 车手联赛开车():
+        sleep(0.5)
+        wait(Template(r"tpl1651553034456.png", record_pos=(-0.363, -0.062), resolution=(3120, 1440)),timeout=60)
+#         while exists(Template(r"tpl1659341694278.png", record_pos=(0.314, 0.178), resolution=(3120, 1440)))==False:
+#             touch((0.9*w,0.9*h))
+#             touch((0.455*w,0.2*h))
+        for i in range(50):
+            if exists(Template(r"tpl1659341694278.png", record_pos=(0.314, 0.178), resolution=(3120, 1440)))==False:
+                touch((0.9*w,0.9*h))
+                touch((0.455*w,0.2*h))
+            else:
+                break
 class four:
 #     结尾点击
     def 结尾():
@@ -305,10 +398,11 @@ class four:
                 touch((0.9*w,0.9*h))
 #         while exists(Template(r"tpl1651046461620.png", record_pos=(0.339, -0.141), resolution=(3120, 1440)))==False:
 #             touch((0.9*w,0.9*h))
-        for i in range(7):
+        for i in range(2):
             if exists(Template(r"tpl1650641664647.png", record_pos=(0.338, 0.178), resolution=(3120, 1440))):
                 break
             else:
+                sleep(1)
                 touch((0.9*w,0.9*h))
                 
 #         while exists(Template(r"tpl1650641664647.png", record_pos=(0.338, 0.178), resolution=(3120, 1440)))==False:
@@ -330,19 +424,28 @@ class four:
             touch((0.9*w,0.9*h))
         touch(Template(r"tpl1651221471643.png", record_pos=(0.339, 0.19), resolution=(3120, 1440)))
     def 生涯刷金结尾():
-        while exists(Template(r"tpl1650084107350.png", record_pos=(0.446, -0.207), resolution=(3120, 1440)))==False:
-            touch((0.9*w,0.9*h))
+
+        for i in range(11):
+            if exists(Template(r"tpl1650084107350.png", record_pos=(0.446, -0.207), resolution=(3120, 1440)))==False:
+                touch((0.9*w,0.9*h))
+            else:
+                break
         if exists(Template(r"tpl1651556981559.png", record_pos=(-0.418, 0.183), resolution=(3120, 1440)))==False:
             keyevent("BACK")
-
-
-
+    def 车手联赛结尾():
+        for i in range(5):
+            if exists(Template(r"tpl1659341694278.png", record_pos=(0.314, 0.178), resolution=(3120, 1440))):
+                touch(Template(r"tpl1659341694278.png", record_pos=(0.314, 0.178), resolution=(3120, 1440)))
+            else:
+                pass
 def 免费包():
     if exists(Template(r"tpl1651112588763.png", record_pos=(-0.002, -0.206), resolution=(3120, 1440))):
         touch((0.5*w,0.05*h))
         print('发现免费包')
+        sleep(0.5)
         wait(Template(r"tpl1651112713696.png", record_pos=(-0.071, -0.06), resolution=(3120, 1440)))
         touch((0.5*w,0.9*h))
+        sleep(0.5)
         wait(Template(r"tpl1651112814759.png", record_pos=(0.326, -0.12), resolution=(3120, 1440)))
         touch((0.5*w,0.9*h))
     else:
@@ -361,12 +464,18 @@ def 多人上循环():
 def 多人下循环():
     try:
         one.多人下()
-        two.多人下选车()
+        
+        
+    except:
+        zero.初始化多人下()
+        多人下循环()
+    two.多人下选车()    
+    try:
         three.选择路线开车()
         four.结尾()
     except:
         zero.初始化多人下()
-        多人下循环()
+        多人下循环()    
 def 每日循环(a,b):
     
     try:
@@ -379,6 +488,7 @@ def 每日循环(a,b):
     sleep(1)    
     if exists(Template(r"tpl1651053137963.png", record_pos=(0.169, -0.146), resolution=(3120, 1440))):
         keyevent("BACK")
+        sleep(0.5)
         wait(Template(r"tpl1650644657193.png", record_pos=(0.358, 0.177), resolution=(3120, 1440)))
         touch((0.52*w,0.9*h))
         raise
@@ -400,6 +510,7 @@ def 赛季寻车循环(a):
     sleep(1)
     if exists(Template(r"tpl1651053137963.png", record_pos=(0.169, -0.146), resolution=(3120, 1440))):
         keyevent("BACK")
+        sleep(0.5)
         wait(Template(r"tpl1650644657193.png", record_pos=(0.358, 0.177), resolution=(3120, 1440)))
         touch((0.52*w,0.9*h))
         raise
@@ -420,11 +531,29 @@ def 生涯刷金循环():
     except:
         zero.初始化生涯刷钱()
         生涯刷金循环()
+def 车手联赛循环():
+    try:
+
+        one.车手联赛()
+
+    except:
+        zero.初始化赛季赛事
+        车手联赛循环()
+    
+    two.车手联赛选车()
+    
+    try:
+        three.车手联赛开车()
+        four.车手联赛结尾()
+    except:
+        zero.初始化赛季赛事
+        车手联赛循环()
 if __name__=='__main__':
     w,h=device().get_current_resolution()#获取屏幕宽高
     if w<h:#根据宽高判断打开游戏
         try:
             start_app("com.gameloft.android.ANMP.GloftA9HM")
+            sleep(0.5)
             wait(Template(r"tpl1650093039504.png", record_pos=(0.448, -0.205), resolution=(3120, 1440)),timeout=90)
             w,h=device().get_current_resolution()
         except:
@@ -443,7 +572,7 @@ if __name__=='__main__':
                 print('每日'+str(i+1))
                 try:
                     t1=time()
-                    每日循环(int(0),str('c'))
+                    每日循环(int(0),str('d'))
                     print(str(time()-t1)+'秒')
                 except:
                     break
@@ -457,20 +586,33 @@ if __name__=='__main__':
 #                     print(str(time()-t1)+'秒')
 #                 except:
 #                     break
-
-#             zero.初始化多人下()
-#             for i in range(1):
-#                 t1=time()
-#                 print('多人下'+str(i+1))
-#                 多人下循环()                    
-#                 print(str(time()-t1)+'秒')  
-
-            zero.初始化多人上()
+            
+            zero.初始化赛季赛事()
+            for i in range(5):
+                t1=time()
+                print('赛季赛事'+str(i+1))
+                try:
+                    车手联赛循环()
+                    print(str(time()-t1)+'秒')
+                except:
+                    break
+    
+            zero.初始化多人下()
             for i in range(19):
                 t1=time()
-                print('多人上'+str(i+1))
-                多人上循环()
-                print(str(time()-t1)+'秒') 
+                print('多人下'+str(i+1))
+                try:
+                    多人下循环()                    
+                    print(str(time()-t1)+'秒')
+                except:
+                    break
+
+#             zero.初始化多人上()
+#             for i in range(19):
+#                 t1=time()
+#                 print('多人上'+str(i+1))
+#                 多人上循环()
+#                 print(str(time()-t1)+'秒') 
                 
 #             zero.初始化生涯刷钱()
 #             for i in range(19):
@@ -500,7 +642,7 @@ if __name__=='__main__':
             elif m != shell("dumpsys telephony.registry | grep mCallState"):
                 print('来电？')
                 break
-            elif int(d[1])<=20:
+            elif int(d[1])<10:
                 print('电量不足？')
                 break
         
