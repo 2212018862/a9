@@ -8,8 +8,8 @@ import threading
 import sys
 import logging
 
-logger = logging.getLogger('airtest')
-logger.setLevel(logging.WARNING)
+# logger = logging.getLogger('airtest')
+# logger.setLevel(logging.WARNING)
 
 ST.OPDELAY = 0.1
 ST.THRESHOLD = 0.9
@@ -75,14 +75,14 @@ class zero:
 
         if a == int(0):
             try:
-                touch(Template(r"tpl1665117997180.png", record_pos=(0.223, 0.164), resolution=(3120, 1440)), times=2)
+                touch(Template(r"tpl1667471707905.png", record_pos=(0.104, 0.164), resolution=(3120, 1440)), times=2)
 
 
             except:
                 swipe((0.5 * w, 0.8 * h), vector=[-0.5, 0])
                 sleep(2)
                 try:
-                    touch(Template(r"tpl1665117997180.png", record_pos=(0.223, 0.164), resolution=(3120, 1440)),
+                    touch(Template(r"tpl1667471707905.png", record_pos=(0.104, 0.164), resolution=(3120, 1440)),
                           times=2)
                 except:
                     pass
@@ -685,15 +685,15 @@ if __name__ == '__main__':
             begin_time = time()
             #             免费包()
 
-            zero.初始化每日(0)
-            for i in range(5):
-                print('每日' + str(i + 1))
-                try:
-                    t1 = time()
-                    每日循环(int(0), str('d'))
-                    print(str(time() - t1) + '秒')
-                except:
-                    break
+#             zero.初始化每日(0)
+#             for i in range(5):
+#                 print('每日' + str(i + 1))
+#                 try:
+#                     t1 = time()
+#                     每日循环(int(0), str('d'))
+#                     print(str(time() - t1) + '秒')
+#                 except:
+#                     break
 
             #             zero.初始化赛季寻车()
             #             for i in range(5):
@@ -716,7 +716,7 @@ if __name__ == '__main__':
             #                     break
 
             zero.初始化多人下()
-            for i in range(4):
+            for i in range(3):
                 t1 = time()
                 print('多人下' + str(i + 1))
                 try:
@@ -726,7 +726,7 @@ if __name__ == '__main__':
                     break
 
             zero.初始化多人上()
-            for i in range(23):
+            for i in range(99):
                 t1 = time()
                 print('多人上' + str(i + 1))
                 多人上循环()
@@ -742,6 +742,10 @@ if __name__ == '__main__':
             end_time = time()
             n = n + 1
             print('第{0}轮运行结束，用时{1}秒'.format(n, end_time - begin_time))
+            d = shell("dumpsys battery | grep level")
+            d = str(d)
+            d = d.split(':')
+            print('电量：' + d[1])
 
 
     def 监听来电():
@@ -754,7 +758,7 @@ if __name__ == '__main__':
 
         m = shell("dumpsys telephony.registry | grep mCallState")
         while True:
-            if m == shell("dumpsys telephony.registry | grep mCallState") and int(d[1]) > 20:
+            if m == shell("dumpsys telephony.registry | grep mCallState") and int(d[1]) >= 0:
                 sleep(1)
                 d = shell("dumpsys battery | grep level")
                 d = str(d)
@@ -762,7 +766,7 @@ if __name__ == '__main__':
             elif m != shell("dumpsys telephony.registry | grep mCallState"):
                 print('来电？')
                 break
-            elif int(d[1]) < 10:
+            elif int(d[1]) < 1:
                 print('电量不足？')
                 break
 
@@ -774,3 +778,6 @@ if __name__ == '__main__':
 
     threading.Thread(target=脚本).start()
     监听来电()
+
+
+
